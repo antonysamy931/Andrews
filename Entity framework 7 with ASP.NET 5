@@ -1,0 +1,18 @@
+
+Entity framework 7 with ASP.NET 5 Core doesn't support edmx. By default it follows code first approach,and we can migrate the existing db using scaffold. It will generate dbcontext as well as poco class.
+
+Steps:
+1.Include the following references :
+-  "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-15945",
+-  "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-15945",
+-  "EntityFramework.Commands": "7.0.0-rc1-final"
+	
+2. Add the following in command tag
+   "ef": "EntityFramework.Commands"
+
+3. Restore references
+
+4. Open Vs command prompt.Run it as admin
+5. Upgrade dnvm command - dnvm upgrade
+6. Restore command - dnu restore
+7. Scaffold edmx command -dnx ef dbcontext scaffold "Server=.;Database=AEP;Trusted_Connection=True;" EntityFramework.MicrosoftSqlServer
