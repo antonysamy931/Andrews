@@ -8,6 +8,7 @@ using Microsoft.Framework.DependencyInjection;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Runtime;
 using Microsoft.Framework.Configuration;
+using Tinytots.English.Business;
 
 namespace Tinytots.English.Master
 {
@@ -30,7 +31,9 @@ namespace Tinytots.English.Master
 
         public void Configure(IApplicationBuilder app)
         {
-            app.UseMvcWithDefaultRoute();
+            Class1 b = new Class1();
+            var obj = b.Get();
+            //app.Use()
         }
     }
 }
