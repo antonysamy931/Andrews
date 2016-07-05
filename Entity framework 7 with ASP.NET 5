@@ -1,18 +1,25 @@
+Existing DB migration using Entity Framework 7
 
-Entity framework 7 with ASP.NET 5 Core doesn't support edmx. By default it follows code first approach,and we can migrate the existing db using scaffold. It will generate dbcontext as well as poco class.
-
-Steps:
-1.Include the following references :
--  "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-15945",
--  "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-15945",
--  "EntityFramework.Commands": "7.0.0-rc1-final"
-	
-2. Add the following in command tag
-   "ef": "EntityFramework.Commands"
-
-3. Restore references
-
-4. Open Vs command prompt.Run it as admin
-5. Upgrade dnvm command - dnvm upgrade
-6. Restore command - dnu restore
-7. Scaffold edmx command -dnx ef dbcontext scaffold "Server=.;Database=AEP;Trusted_Connection=True;" EntityFramework.MicrosoftSqlServer
+1. Create new ASP.NET 5 project -> Select ASP.NET 5 class library
+2. Add the following dependencies in project.json -> inside dependencies tag:
+- "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-15945"
+- "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-15945"
+- "EntityFramework.Commands": "7.0.0-rc1-final"
+3. Add command tag in project.json file
+Syntax : 
+	"commands": {
+		"ef": "EntityFramework.Commands"
+	}
+4. In framework tag replace "dotnet" tag with "dnx451".
+5. Move the all the  references from dependencies tag to dnx451 except 
+- "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-15945"
+- "EntityFramework.MicrosoftSqlServer.Design": "7.0.0-rc1-15945"
+- "EntityFramework.Commands": "7.0.0-rc1-final"
+6. Open VS command prompt
+7. Navigate to current project folder
+8. Check entity framework command version using : 
+- dnx ef --version
+9. Restore the references using :
+- dnu restore
+10. Extract dbContext and classes using :
+- dnx ef dbcontext scaffold "Server=.;Database=AEP;Trusted_Connection=True;" EntityFramework.MicrosoftSqlServer
