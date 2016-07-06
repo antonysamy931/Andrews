@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Metadata;
 
 namespace Tinytots.English.DataAccess
 {
-    public partial class Lesson
+    public class Lesson
     {
         public Lesson()
         {

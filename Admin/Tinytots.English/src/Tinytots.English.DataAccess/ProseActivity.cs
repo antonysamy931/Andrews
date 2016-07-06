@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Metadata;
 
 namespace Tinytots.English.DataAccess
 {
-    public partial class ProseActivity
+    public class ProseActivity
     {
         public int Id { get; set; }
         public int? AccentId { get; set; }

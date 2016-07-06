@@ -7,16 +7,19 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "System.Collections": "4.0.10-beta-23019",
-    "System.Linq": "4.0.0-beta-23019",
-    "System.Threading": "4.0.10-beta-23019",
-    "System.Runtime": "4.0.10-beta-23019",
-    "Microsoft.CSharp": "4.0.0-beta-23019"
+    "Tinytots.English.DataAccess": ""
   },
 
   "frameworks": {
-    "dnx451": {
-      "dependencies": { "Tinytots.English.DataAccess": "1.0.0-*" }
+    "dnx451": {      
+    },
+    "dnxcore50": {
+      "dependencies": {
+        "System.Collections": "4.0.11-beta-23516",
+        "System.Linq": "4.0.0",
+        "System.Threading": "4.0.11-beta-23225",        
+        "Microsoft.CSharp": "4.0.1"
+      }
     }
   }
 }

@@ -457,52 +457,6 @@
           "lib/portable-net45+win8+wp8+wpa81/System.Diagnostics.DiagnosticSource.dll": {}
         }
       }
-    },
-    "DNXCore,Version=v5.0": {
-      "EntityFramework.Commands/7.0.0-rc1-final": {
-        "dependencies": {
-          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
-          "Microsoft.AspNet.Hosting.Abstractions": "1.0.0-rc1-final",
-          "Microsoft.Extensions.PlatformAbstractions": "1.0.0-rc1-final",
-          "System.Console": "4.0.0-beta-23516"
-        },
-        "compile": {
-          "lib/dnxcore50/EntityFramework.Commands.dll": {}
-        },
-        "runtime": {
-          "lib/dnxcore50/EntityFramework.Commands.dll": {}
-        }
-      },
-      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {},
-      "EntityFramework.MicrosoftSqlServer.Design/7.0.0-rc1-final": {
-        "dependencies": {
-          "EntityFramework.Relational.Design": "7.0.0-rc1-final",
-          "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final"
-        },
-        "compile": {
-          "lib/dnxcore50/EntityFramework.MicrosoftSqlServer.Design.dll": {}
-        },
-        "runtime": {
-          "lib/dnxcore50/EntityFramework.MicrosoftSqlServer.Design.dll": {}
-        }
-      },
-      "EntityFramework.Relational/7.0.0-rc1-final": {},
-      "EntityFramework.Relational.Design/7.0.0-rc1-final": {
-        "dependencies": {
-          "EntityFramework.Relational": "7.0.0-rc1-final",
-          "System.ComponentModel.Annotations": "4.0.11-beta-23516"
-        },
-        "compile": {
-          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
-        },
-        "runtime": {
-          "lib/dnxcore50/EntityFramework.Relational.Design.dll": {}
-        }
-      },
-      "Microsoft.AspNet.Hosting.Abstractions/1.0.0-rc1-final": {},
-      "Microsoft.Extensions.PlatformAbstractions/1.0.0-rc1-final": {},
-      "System.ComponentModel.Annotations/4.0.11-beta-23516": {},
-      "System.Console/4.0.0-beta-23516": {}
     }
   },
   "libraries": {
@@ -894,93 +848,6 @@
         "System.Collections.Immutable.nuspec"
       ]
     },
-    "System.ComponentModel.Annotations/4.0.11-beta-23516": {
-      "serviceable": true,
-      "sha512": "VAt5IT69A0lBwY9j8FvyyiB0FLPAwxq/qQ+VZNcXS+MBroSDg/gc/4/nrJKdFGW+6HnAlm9II7TbJ7Es5UlBPw==",
-      "files": [
-        "System.ComponentModel.Annotations.4.0.11-beta-23516.nupkg",
-        "System.ComponentModel.Annotations.4.0.11-beta-23516.nupkg.sha512",
-        "System.ComponentModel.Annotations.nuspec",
-        "lib/dotnet5.4/System.ComponentModel.Annotations.dll",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/netcore50/System.ComponentModel.Annotations.dll",
-        "lib/win8/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "ref/dotnet5.2/System.ComponentModel.Annotations.dll",
-        "ref/dotnet5.2/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/de/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/es/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/fr/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/it/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/ja/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/ko/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/ru/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/zh-hans/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.2/zh-hant/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/System.ComponentModel.Annotations.dll",
-        "ref/dotnet5.4/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/de/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/es/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/fr/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/it/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/ja/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/ko/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/ru/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/zh-hans/System.ComponentModel.Annotations.xml",
-        "ref/dotnet5.4/zh-hant/System.ComponentModel.Annotations.xml",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netcore50/System.ComponentModel.Annotations.dll",
-        "ref/netcore50/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/de/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/es/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/fr/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/it/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/ja/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/ko/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/ru/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/zh-hans/System.ComponentModel.Annotations.xml",
-        "ref/netcore50/zh-hant/System.ComponentModel.Annotations.xml",
-        "ref/win8/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._"
-      ]
-    },
-    "System.Console/4.0.0-beta-23516": {
-      "serviceable": true,
-      "sha512": "tzF4Dbbv+5bcbQ7GHuuKafkaDZThiUiwxqCc1ngewnMWZ5YmIgjQZjs+E1DNhoMVAvkH0tSmLJvsDlx9dFg+Aw==",
-      "files": [
-        "runtime.json",
-        "System.Console.4.0.0-beta-23516.nupkg",
-        "System.Console.4.0.0-beta-23516.nupkg.sha512",
-        "System.Console.nuspec",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Console.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "ref/dotnet5.1/System.Console.dll",
-        "ref/dotnet5.1/System.Console.xml",
-        "ref/dotnet5.1/de/System.Console.xml",
-        "ref/dotnet5.1/es/System.Console.xml",
-        "ref/dotnet5.1/fr/System.Console.xml",
-        "ref/dotnet5.1/it/System.Console.xml",
-        "ref/dotnet5.1/ja/System.Console.xml",
-        "ref/dotnet5.1/ko/System.Console.xml",
-        "ref/dotnet5.1/ru/System.Console.xml",
-        "ref/dotnet5.1/zh-hans/System.Console.xml",
-        "ref/dotnet5.1/zh-hant/System.Console.xml",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Console.dll",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._"
-      ]
-    },
     "System.Diagnostics.DiagnosticSource/4.0.0-beta-23516": {
       "serviceable": true,
       "sha512": "0uDR/UOmFCNPDCyHEPHhCrk6c1iRnDp00YqwSZ8Qf5aaaJjm4WXnf4Q9xZw4OoApsSiODSypDMdpQU24IxR16A==",
@@ -1001,7 +868,6 @@
       "EntityFramework.MicrosoftSqlServer.Design >= 7.0.0-rc1-15945",
       "EntityFramework.Commands >= 7.0.0-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [],
-    "DNXCore,Version=v5.0": []
+    "DNX,Version=v4.5.1": []
   }
 }

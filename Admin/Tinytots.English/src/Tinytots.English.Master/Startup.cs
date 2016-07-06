@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Http;
 using Microsoft.Framework.DependencyInjection;
-using Microsoft.AspNet.Hosting;
-using Microsoft.Framework.Runtime;
 using Microsoft.Framework.Configuration;
-using Tinytots.English.Business;
+using Microsoft.AspNet.Hosting;
+using Microsoft.Dnx.Runtime;
 
 namespace Tinytots.English.Master
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; set; }
+        public IConfigurationRoot Configuration { get; set; }
         public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
@@ -23,7 +22,6 @@ namespace Tinytots.English.Master
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-        // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -31,9 +29,11 @@ namespace Tinytots.English.Master
 
         public void Configure(IApplicationBuilder app)
         {
-            Class1 b = new Class1();
-            var obj = b.Get();
-            //app.Use()
+            app.UseMvcWithDefaultRoute();
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync("Hello World!");
+            });
         }
     }
 }

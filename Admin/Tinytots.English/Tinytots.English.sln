@@ -10,11 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tinytots.English.Master", "src\Tinytots.English.Master\Tinytots.English.Master.xproj", "{D316CD86-6741-417A-BF37-E6F54654839C}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tinytots.English.DataAccess", "src\Tinytots.English.DataAccess\Tinytots.English.DataAccess.xproj", "{796F136B-E344-4067-BD5C-BEF5BC377268}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tinytots.English.Business", "src\Tinytots.English.Business\Tinytots.English.Business.xproj", "{52716419-EEE1-405F-9C7F-0166990E9A02}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tinytots.English.Master", "src\Tinytots.English.Master\Tinytots.English.Master.xproj", "{13669944-EE22-4996-9771-E0EF3CC641FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D316CD86-6741-417A-BF37-E6F54654839C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D316CD86-6741-417A-BF37-E6F54654839C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D316CD86-6741-417A-BF37-E6F54654839C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D316CD86-6741-417A-BF37-E6F54654839C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{796F136B-E344-4067-BD5C-BEF5BC377268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{796F136B-E344-4067-BD5C-BEF5BC377268}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{796F136B-E344-4067-BD5C-BEF5BC377268}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -34,13 +30,17 @@ Global
 		{52716419-EEE1-405F-9C7F-0166990E9A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52716419-EEE1-405F-9C7F-0166990E9A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52716419-EEE1-405F-9C7F-0166990E9A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13669944-EE22-4996-9771-E0EF3CC641FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13669944-EE22-4996-9771-E0EF3CC641FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13669944-EE22-4996-9771-E0EF3CC641FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13669944-EE22-4996-9771-E0EF3CC641FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D316CD86-6741-417A-BF37-E6F54654839C} = {7E7AD78F-E4F7-4E28-B582-13B62991263D}
 		{796F136B-E344-4067-BD5C-BEF5BC377268} = {7E7AD78F-E4F7-4E28-B582-13B62991263D}
 		{52716419-EEE1-405F-9C7F-0166990E9A02} = {7E7AD78F-E4F7-4E28-B582-13B62991263D}
+		{13669944-EE22-4996-9771-E0EF3CC641FD} = {7E7AD78F-E4F7-4E28-B582-13B62991263D}
 	EndGlobalSection
 EndGlobal

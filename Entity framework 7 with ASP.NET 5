@@ -23,3 +23,5 @@ Syntax :
 - dnu restore
 10. Extract dbContext and classes using :
 - dnx ef dbcontext scaffold "Server=.;Database=AEP;Trusted_Connection=True;" EntityFramework.MicrosoftSqlServer
+
+For beta-7 : dnx ef dbcontext scaffold "Server=.;Database=AEP;Trusted_Connection=True;" EntityFramework.SqlServer
