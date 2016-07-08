@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Accent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="British" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="American" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LessonPageMapping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LessonId" Type="int" />
+    <Property Name="PageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProseActivity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccentId" Type="int" />
+    <Property Name="Question" Type="nvarchar" MaxLength="300" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="300" />
+    <Property Name="Result" Type="bit" />
+    <Property Name="Datetime" Type="datetime" />
+    <Property Name="Identity" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Vocabulary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImageId" Type="int" />
+    <Property Name="Word" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Synonym" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Accent_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Accent" Type="Self.Accent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Accent">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessonPageMapping_Lesson">
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+    <End Role="LessonPageMapping" Type="Self.LessonPageMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lesson">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LessonPageMapping">
+        <PropertyRef Name="LessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LessonPageMapping_Page">
+    <End Role="Page" Type="Self.Page" Multiplicity="0..1" />
+    <End Role="LessonPageMapping" Type="Self.LessonPageMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LessonPageMapping">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProseActivity_Accent">
+    <End Role="Accent" Type="Self.Accent" Multiplicity="0..1" />
+    <End Role="ProseActivity" Type="Self.ProseActivity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Accent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProseActivity">
+        <PropertyRef Name="AccentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vocabulary_Image">
+    <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Vocabulary" Type="Self.Vocabulary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vocabulary">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AEPModelStoreContainer">
+    <EntitySet Name="Accent" EntityType="Self.Accent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonPageMapping" EntityType="Self.LessonPageMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProseActivity" EntityType="Self.ProseActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vocabulary" EntityType="Self.Vocabulary" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Accent_Image" Association="Self.FK_Accent_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Accent" EntitySet="Accent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessonPageMapping_Lesson" Association="Self.FK_LessonPageMapping_Lesson">
+      <End Role="Lesson" EntitySet="Lesson" />
+      <End Role="LessonPageMapping" EntitySet="LessonPageMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LessonPageMapping_Page" Association="Self.FK_LessonPageMapping_Page">
+      <End Role="Page" EntitySet="Page" />
+      <End Role="LessonPageMapping" EntitySet="LessonPageMapping" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProseActivity_Accent" Association="Self.FK_ProseActivity_Accent">
+      <End Role="Accent" EntitySet="Accent" />
+      <End Role="ProseActivity" EntitySet="ProseActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vocabulary_Image" Association="Self.FK_Vocabulary_Image">
+      <End Role="Image" EntitySet="Image" />
+      <End Role="Vocabulary" EntitySet="Vocabulary" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

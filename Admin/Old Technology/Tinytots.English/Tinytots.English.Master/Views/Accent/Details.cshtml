@@ -1,0 +1,38 @@
+﻿@model Tinytots.English.DTO.ViewModel.AccentModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AccentModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.British)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.British)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.American)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.American)
+        </dd>        
+        <dd>
+            <img src="@Url.Action("ViewImage","Image",new { id = Model.ImageId })" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,10 @@
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.dll
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.pdb
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.csprojResolveAssemblyReference.cache
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.dll
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.pdb
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.dll.config
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.dll
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.dll
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.xml
+D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.xml
