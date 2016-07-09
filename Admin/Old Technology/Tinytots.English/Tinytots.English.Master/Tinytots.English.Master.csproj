@@ -125,6 +125,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\VocabularyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -171,6 +172,11 @@
     <Content Include="Views\Accent\Edit.cshtml" />
     <Content Include="Views\Accent\Details.cshtml" />
     <Content Include="Views\Accent\Delete.cshtml" />
+    <Content Include="Views\Vocabulary\Index.cshtml" />
+    <Content Include="Views\Vocabulary\Details.cshtml" />
+    <Content Include="Views\Vocabulary\Create.cshtml" />
+    <Content Include="Views\Vocabulary\Edit.cshtml" />
+    <Content Include="Views\Vocabulary\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

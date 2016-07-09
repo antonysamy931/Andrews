@@ -1,4 +1,4 @@
-﻿@model Tinytots.English.DTO.ViewModel.AccentModel
+﻿@model Tinytots.English.DTO.ViewModel.VocabularyModel
 
 @{
     ViewBag.Title = "Details";
@@ -8,27 +8,27 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Accent</h4>
+    <h4>Vocabulary</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.British)
+            @Html.DisplayNameFor(model => model.Word)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.British)
+            @Html.DisplayFor(model => model.Word)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.American)
+            @Html.DisplayNameFor(model => model.Synonym)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.American)
-        </dd>  
+            @Html.DisplayFor(model => model.Synonym)
+        </dd>
         <dt>
             @Html.Display("Image")
-        </dt>      
+        </dt>
         <dd>
             <img src="@Url.Action("ViewImage","Image",new { id = Model.ImageId })" />
         </dd>

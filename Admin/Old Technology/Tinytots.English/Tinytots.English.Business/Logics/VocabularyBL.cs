@@ -18,6 +18,23 @@ namespace Tinytots.English.Business.Logics
             _imageDL = new ImageDL();
         }
         
+        public List<VocabularyModel> GetAll()
+        {
+            List<VocabularyModel> models = new List<VocabularyModel>();
+            var vocabularies = _vocabularyDL.Get();
+            if(vocabularies != null && vocabularies.Count > 0)
+            {
+                foreach(var item in vocabularies)
+                {
+                    VocabularyModel model = new VocabularyModel();
+                    model.Id = item.Id;
+                    model.Word = item.Word;
+                    model.Synonym = item.Synonym;
+                    models.Add(model);
+                }
+            }
+            return models;
+        }
         public VocabularyModel Get(int id)
         {
             VocabularyModel model = new VocabularyModel();
@@ -64,7 +81,10 @@ namespace Tinytots.English.Business.Logics
                 Word = model.Word,
                 Synonym = model.Synonym                
             };
-
+            if(model.ImageId != null)
+            {
+                Vocabulary.ImageId = model.ImageId;
+            }
             if(model.Id != null)
             {
                 Vocabulary.Id = model.Id.Value;

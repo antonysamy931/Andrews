@@ -10,3 +10,15 @@ D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.SqlServer.dll
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.xml
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\Tinytots.English.Data.dll.config
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\Tinytots.English.Data.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\Tinytots.English.Data.pdb
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\Tinytots.English.DTO.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\Tinytots.English.DTO.pdb
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\obj\Debug\Tinytots.English.Data.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\obj\Debug\Tinytots.English.Data.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.Data\obj\Debug\Tinytots.English.Data.pdb

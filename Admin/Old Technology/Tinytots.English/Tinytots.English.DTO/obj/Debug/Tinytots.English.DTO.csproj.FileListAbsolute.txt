@@ -8,3 +8,13 @@ D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.dll
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.xml
 D:\Antony\Andrews\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.dll.config
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\Tinytots.English.DTO.pdb
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.dll
+C:\Users\Lenovo\Documents\GitHub\Andrews\Admin\Old Technology\Tinytots.English\Tinytots.English.DTO\obj\Debug\Tinytots.English.DTO.pdb
