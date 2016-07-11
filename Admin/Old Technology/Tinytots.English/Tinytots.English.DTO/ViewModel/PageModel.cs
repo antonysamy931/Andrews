@@ -13,7 +13,7 @@ namespace Tinytots.English.DTO.ViewModel
         [Required]
         public string Content { get; set; }
 
-        public int LessonId { get; set; }
+        public int? LessonId { get; set; }
 
         public Lesson Lesson { get; set; }
 

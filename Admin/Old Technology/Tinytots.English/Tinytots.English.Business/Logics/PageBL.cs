@@ -20,6 +20,24 @@ namespace Tinytots.English.Business.Logics
             _mapping = new LessonPageMappingDL();
         }
 
+        public List<PageModel> Gets(int lessonId)
+        {
+            List<PageModel> models = new List<PageModel>();
+            var pages = _pageDL.GetByLessonId(lessonId);
+            if(pages!=null && pages.Count > 0)
+            {
+                foreach(var item in pages)
+                {
+                    PageModel model = new PageModel();
+                    model.Id = item.Id;
+                    model.Content = item.Content;
+                    model.LessonId = lessonId;
+                    models.Add(model);
+                }
+            }
+            return models;
+        }
+
         public PageModel Get(int pageid, int lessonId)
         {
             PageModel model = new PageModel();
@@ -46,8 +64,8 @@ namespace Tinytots.English.Business.Logics
         public int Insert(PageModel model)
         {
             var PageId = _pageDL.Insert(PreparePage(model));
-            _mapping.Insert(PrepareLessonPageMapping(model.LessonId, PageId));
-            return model.LessonId;
+            _mapping.Insert(PrepareLessonPageMapping(model.LessonId.Value, PageId));
+            return PageId;
         }
 
         public void Update(PageModel model)

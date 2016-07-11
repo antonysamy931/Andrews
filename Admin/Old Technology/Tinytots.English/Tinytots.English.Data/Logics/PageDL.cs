@@ -9,10 +9,12 @@ namespace Tinytots.English.Data.Logics
     public class PageDL : IDisposable
     {
         private AEPEntities _context = null;
+        private LessonPageMappingDL _mapping = null;
 
         public PageDL()
         {
             _context = new AEPEntities();
+            _mapping = new LessonPageMappingDL();
         }
 
         public int Insert(Page page)
@@ -61,6 +63,7 @@ namespace Tinytots.English.Data.Logics
                 Page page = GetById(id);
                 if(page != null)
                 {
+                    _mapping.Delete(page.Id);
                     _context.Pages.Remove(page);
                     _context.SaveChanges();
                 }

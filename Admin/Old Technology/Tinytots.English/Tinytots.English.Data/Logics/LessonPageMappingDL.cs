@@ -27,6 +27,11 @@ namespace Tinytots.English.Data.Logics
             return _context.LessonPageMappings.Where(x => x.Id == id).FirstOrDefault();
         }        
 
+        public List<int> GetPageIds(int id)
+        {            
+            return _context.LessonPageMappings.Where(x => x.LessonId.Value == id && x.PageId != null).Select(x => x.PageId.Value).ToList();         
+        }
+
         public void Delete(int id)
         {
             if(id != 0)

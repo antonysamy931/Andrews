@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Tinytots.English.Data.Logics;
 using Tinytots.English.DTO;
 using Tinytots.English.DTO.CustomDTO;
+using Tinytots.English.DTO.ViewModel;
 
 namespace Tinytots.English.Business.Logics
 {
@@ -13,18 +14,39 @@ namespace Tinytots.English.Business.Logics
     {
         LessonDL _lessonDL = null;
         PageDL _pageDL = null;
+        LessonPageMappingDL _LessonPageMappingDL = null;
         public LessonBL()
         {
             _lessonDL = new LessonDL();
             _pageDL = new PageDL();
+            _LessonPageMappingDL = new LessonPageMappingDL();
         }
 
-        public LessonDTO GetById(int id, int? pageId = null)
+        public List<LessonDTO> Get()
+        {
+            List<LessonDTO> models = new List<LessonDTO>();
+            var lessons = _lessonDL.Get();
+            if (lessons != null && lessons.Count > 0)
+            {
+                foreach(var item in lessons)
+                {
+                    LessonDTO model = new LessonDTO();
+                    model.Id = item.Id;
+                    model.Name = item.Name;
+                    model.Description = item.Description;
+                    models.Add(model);
+                }
+            }
+            return models;
+        }
+
+        public LessonDTO Detail(int id, int? pageId = null)
         {
             LessonDTO lessonDTO = new LessonDTO();
             var lesson = _lessonDL.GetById(id);
             if (lesson != null)
             {
+                lessonDTO.Id = lesson.Id;
                 lessonDTO.Name = lesson.Name;
                 lessonDTO.Description = lesson.Description;
             }
@@ -51,8 +73,21 @@ namespace Tinytots.English.Business.Logics
             return lessonDTO;
         }
 
+        public LessonModel GetById(int id)
+        {
+            LessonModel model = new LessonModel();
+            var lesson = _lessonDL.GetById(id);
+            if(lesson!= null)
+            {
+                model.Id = lesson.Id;
+                model.Name = lesson.Name;
+                model.Description = lesson.Description;
+            }
+            return model;
+        }
+
         public int Insert(Lesson lesson)
-        {            
+        {
             var id = _lessonDL.Insert(Mapping(lesson));
             return id;
         }
@@ -63,9 +98,18 @@ namespace Tinytots.English.Business.Logics
             return lesson.Id;
         }
 
-        public void Delete(Lesson lesson)
+        public void Delete(int id)
         {
-            _lessonDL.Delete(lesson.Id);
+            List<int> PageIds = _LessonPageMappingDL.GetPageIds(id);
+            if(PageIds!=null && PageIds.Count > 0)
+            {
+                foreach(var item in PageIds)
+                {
+                    _pageDL.Delete(item);
+                    _LessonPageMappingDL.Delete(item);
+                }
+            }
+            _lessonDL.Delete(id);
         }
 
         private Data.Lesson Mapping(Lesson lesson)
