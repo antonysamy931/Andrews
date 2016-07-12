@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tinytots.English.Data", "Ti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tinytots.English.DTO", "Tinytots.English.DTO\Tinytots.English.DTO.csproj", "{89CAF448-D188-4BDD-BFDE-9D81DC712666}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tinytots.English.Teacher", "Tinytots.English.Teacher\Tinytots.English.Teacher.csproj", "{33717B8D-0CB6-490C-96F1-29C7D7CAD326}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{89CAF448-D188-4BDD-BFDE-9D81DC712666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89CAF448-D188-4BDD-BFDE-9D81DC712666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CAF448-D188-4BDD-BFDE-9D81DC712666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33717B8D-0CB6-490C-96F1-29C7D7CAD326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33717B8D-0CB6-490C-96F1-29C7D7CAD326}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33717B8D-0CB6-490C-96F1-29C7D7CAD326}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33717B8D-0CB6-490C-96F1-29C7D7CAD326}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

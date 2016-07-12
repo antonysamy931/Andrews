@@ -1,0 +1,43 @@
+﻿@model Tinytots.English.DTO.CustomDTO.LessonDTO
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Lesson</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<div id="PageContent">
+
+</div>
+<a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Previous }) : "#")">Pre</a>
+<a href="@Html.Raw(Model.Next != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Next }) : "#")">Next</a>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#PageContent').html('@Html.Raw(Model.PageDTO.Content)');
+    });
+</script>

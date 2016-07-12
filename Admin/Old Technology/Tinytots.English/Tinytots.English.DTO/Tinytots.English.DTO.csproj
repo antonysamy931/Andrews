@@ -62,6 +62,7 @@
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="CustomDTO\LessonDTO.cs" />
+    <Compile Include="CustomDTO\VocabularyDTO.cs" />
     <Compile Include="Image.cs">
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>

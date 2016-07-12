@@ -35,5 +35,13 @@ namespace Tinytots.English.Master.Controllers
             }        
             return View(model);
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();            
+            return RedirectToAction(nameof(Login));
+        }
     }
 }

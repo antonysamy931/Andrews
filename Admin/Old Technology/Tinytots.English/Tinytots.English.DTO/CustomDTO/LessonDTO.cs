@@ -13,5 +13,7 @@ namespace Tinytots.English.DTO.CustomDTO
         public string Description { get; set; }
         public Page PageDTO { get; set; }
         public List<Page> Pages { get; set; }
+        public int Next { get; set; }
+        public int Previous { get; set; }
     }
 }

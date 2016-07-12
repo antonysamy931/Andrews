@@ -30,11 +30,16 @@ namespace Tinytots.English.Business.Logics
                     model.Id = item.Id;
                     model.Word = item.Word;
                     model.Synonym = item.Synonym;
+                    model.ImageId = item.ImageId;
                     models.Add(model);
                 }
             }
             return models;
         }
+        //public List<VocabularyModel> GetAll(int? id = null)
+        //{
+
+        //}
         public VocabularyModel Get(int id)
         {
             VocabularyModel model = new VocabularyModel();

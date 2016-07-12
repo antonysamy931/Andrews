@@ -28,7 +28,7 @@ namespace Tinytots.English.Business.Logics
             var lessons = _lessonDL.Get();
             if (lessons != null && lessons.Count > 0)
             {
-                foreach(var item in lessons)
+                foreach (var item in lessons)
                 {
                     LessonDTO model = new LessonDTO();
                     model.Id = item.Id;
@@ -64,10 +64,24 @@ namespace Tinytots.English.Business.Logics
             if (pageId != null)
             {
                 lessonDTO.PageDTO = lessonDTO.Pages.Where(x => x.Id == pageId.Value).FirstOrDefault();
+                var index = lessonDTO.Pages.FindIndex(x => x.Id == pageId.Value);
+                if (index > 0)
+                {
+                    var nextObj = lessonDTO.Pages.Skip(index + 1).FirstOrDefault();
+                    if (nextObj != null)
+                        lessonDTO.Next = nextObj.Id;
+                    var preObj = lessonDTO.Pages.Skip(index - 1).FirstOrDefault();
+                    if (preObj != null)
+                        lessonDTO.Previous = preObj.Id;
+                }
             }
             else
             {
                 lessonDTO.PageDTO = lessonDTO.Pages.FirstOrDefault();
+
+                var nextObj = lessonDTO.Pages.Skip(1).FirstOrDefault();
+                if (nextObj != null)
+                    lessonDTO.Next = nextObj.Id;
             }
 
             return lessonDTO;
@@ -77,7 +91,7 @@ namespace Tinytots.English.Business.Logics
         {
             LessonModel model = new LessonModel();
             var lesson = _lessonDL.GetById(id);
-            if(lesson!= null)
+            if (lesson != null)
             {
                 model.Id = lesson.Id;
                 model.Name = lesson.Name;
@@ -101,9 +115,9 @@ namespace Tinytots.English.Business.Logics
         public void Delete(int id)
         {
             List<int> PageIds = _LessonPageMappingDL.GetPageIds(id);
-            if(PageIds!=null && PageIds.Count > 0)
+            if (PageIds != null && PageIds.Count > 0)
             {
-                foreach(var item in PageIds)
+                foreach (var item in PageIds)
                 {
                     _pageDL.Delete(item);
                     _LessonPageMappingDL.Delete(item);
