@@ -4,33 +4,29 @@
 }
 @if (Model != null && Model.Count() > 0)
 {
-    
+
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Content)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LessonId)
-            </th>
-            <th></th>
+                PAGE
+            </th>            
+            <th>ACTIONS</th>
         </tr>
-
+        @{
+            int page = 1;
+        }
         @foreach (var item in Model)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Content)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LessonId)
+                    @Html.ActionLink("Page " + page, "Details", new { id = item.Id, lessonId = item.LessonId })
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id, lessonId = item.LessonId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id, lessonId = item.LessonId }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id, lessonId = item.LessonId })
                 </td>
             </tr>
+            page++;
         }
     </table>
 }

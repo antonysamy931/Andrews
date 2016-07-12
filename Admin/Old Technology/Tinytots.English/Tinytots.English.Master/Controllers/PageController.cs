@@ -50,7 +50,7 @@ namespace Tinytots.English.Master.Controllers
         }
 
         // POST: Page/Create
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Create(PageModel model)
         {
             if (ModelState.IsValid)

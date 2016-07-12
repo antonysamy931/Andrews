@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Content)
+            <div id="Content"></div>
         </dd>
 
     </dl>
@@ -48,3 +48,9 @@
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id, lessonId = Model.LessonId.Value }) |
     @Html.ActionLink("Back to Lesson", "Details", "Lesson", new { id = Model.LessonId.Value }, null)
 </p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Content').html('@Html.Raw(Model.Content)');
+    });
+</script>

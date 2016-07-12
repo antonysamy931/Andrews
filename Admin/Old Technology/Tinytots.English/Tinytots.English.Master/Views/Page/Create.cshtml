@@ -43,7 +43,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                <textarea name="Content" class="form-control editor"></textarea>                
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -55,11 +55,18 @@
         </div>
     </div>
 }
-
 <div>
     @Html.ActionLink("Back to Lesson", "Details","Lesson",new { id = Model.LessonId.Value })
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqte")
 }
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-te-1.4.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.editor').jqte();        
+    });
+</script>

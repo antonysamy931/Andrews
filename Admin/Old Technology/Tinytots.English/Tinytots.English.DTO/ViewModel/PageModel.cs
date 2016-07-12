@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Tinytots.English.DTO.ViewModel
 {
@@ -11,6 +12,7 @@ namespace Tinytots.English.DTO.ViewModel
     {       
         public int? Id { get; set; }
         [Required]
+        [AllowHtml]
         public string Content { get; set; }
 
         public int? LessonId { get; set; }
