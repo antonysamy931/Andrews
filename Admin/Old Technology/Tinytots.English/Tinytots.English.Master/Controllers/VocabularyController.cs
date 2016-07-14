@@ -52,24 +52,17 @@ namespace Tinytots.English.Master.Controllers
         [HttpPost]
         public ActionResult Create(VocabularyModel model, HttpPostedFileBase image)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                if (image != null)
                 {
-                    if (image != null)
-                    {
-                        byte[] Image = ConvertStreamToByte(image.InputStream);
-                        model.Image = ConvertByteToString(Image);
-                    }
-                    var accentId = _VocabularyBL.Insert(model);
-                    return RedirectToAction("Index");
+                    byte[] Image = ConvertStreamToByte(image.InputStream);
+                    model.Image = ConvertByteToString(Image);
                 }
-                return View(model);
+                var accentId = _VocabularyBL.Insert(model);
+                return RedirectToAction("Index");
             }
-            catch (Exception ex)
-            {
-                return View(model);
-            }
+            return View(model);
         }
 
         // GET: Vocabulary/Edit/5
@@ -85,7 +78,7 @@ namespace Tinytots.English.Master.Controllers
                     model.Description = image.Description;
                 }
             }
-            return View(model);            
+            return View(model);
         }
 
         // POST: Vocabulary/Edit/5

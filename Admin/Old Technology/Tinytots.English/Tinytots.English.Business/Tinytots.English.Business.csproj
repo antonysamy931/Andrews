@@ -44,6 +44,7 @@
     <Compile Include="Logics\ImageBL.cs" />
     <Compile Include="Logics\LessonBL.cs" />
     <Compile Include="Logics\PageBL.cs" />
+    <Compile Include="Logics\UserBL.cs" />
     <Compile Include="Logics\VocabularyBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

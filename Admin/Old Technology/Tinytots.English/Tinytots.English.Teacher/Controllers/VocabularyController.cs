@@ -16,9 +16,10 @@ namespace Tinytots.English.Teacher.Controllers
             _VocabularyBL = new VocabularyBL();
         }
         // GET: Vocabulary
-        public ActionResult Index()
+        public ActionResult Index(int? page = null)
         {
-            return View();
+            var model = _VocabularyBL.GetAll(page);
+            return View(model);
         }
     }
 }

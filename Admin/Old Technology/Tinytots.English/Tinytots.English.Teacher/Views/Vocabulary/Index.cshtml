@@ -1,0 +1,42 @@
+﻿@model Tinytots.English.DTO.CustomDTO.VocabularyDTO
+@using System.Configuration;
+@{
+    ViewBag.Title = "Vocabulary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var VocabularyTemplate = ConfigurationManager.AppSettings["VocabularyTextReading"].ToString();
+    var Text = VocabularyTemplate.Replace("{word}", Model.Default.Word).Replace("{synonym}", Model.Default.Synonym);
+}
+
+<h2>Vocabulary</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-3">
+            <p>Vocabulary List</p>
+            <ul class="nav navbar">
+                @foreach (var item in Model.Vocabularies)
+                {
+                    if (item.Id == Model.Default.Id)
+                    {
+                        <li><a href="#" class="active">@item.Word</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("Index", new { page = item.Id })">@item.Word</a></li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-sm-12 col-md-9">
+            <div class="row">
+                <label> Word @Model.Default.Word : @Model.Default.Synonym </label>
+                <audio controls id="MyAudio">
+                    <source src="@Url.Action("Speak","Speech",new { text = Text })" type="audio/mp3" />
+                    <p>Your browser does not support HTML 5 audio element</p>
+                </audio>
+                <img src="@Url.Action("ViewImage","Image",new { id = Model.Default.ImageId })" />
+                <a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Index", new { page = Model.Previous }) : "#")">Pre</a>
+                <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Index", new { page = Model.Next }) : "#")">Next</a>
+            </div>
+        </div>
+    </div>
+</div>

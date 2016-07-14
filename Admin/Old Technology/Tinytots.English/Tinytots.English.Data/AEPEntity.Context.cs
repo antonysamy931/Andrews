@@ -31,6 +31,8 @@ namespace Tinytots.English.Data
         public virtual DbSet<LessonPageMapping> LessonPageMappings { get; set; }
         public virtual DbSet<Page> Pages { get; set; }
         public virtual DbSet<ProseActivity> ProseActivities { get; set; }
+        public virtual DbSet<QuestionSet> QuestionSets { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Vocabulary> Vocabularies { get; set; }
     }
 }

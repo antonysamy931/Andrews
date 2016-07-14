@@ -4,69 +4,94 @@
     <EntitySetMapping Name="Accents">
       <EntityTypeMapping TypeName="AEPModel.Accent">
         <MappingFragment StoreEntitySet="Accent">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-          <ScalarProperty Name="British" ColumnName="British" />
           <ScalarProperty Name="American" ColumnName="American" />
+          <ScalarProperty Name="British" ColumnName="British" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Images">
       <EntityTypeMapping TypeName="AEPModel.Image">
         <MappingFragment StoreEntitySet="Image">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Lessons">
       <EntityTypeMapping TypeName="AEPModel.Lesson">
         <MappingFragment StoreEntitySet="Lesson">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="LessonPageMappings">
       <EntityTypeMapping TypeName="AEPModel.LessonPageMapping">
         <MappingFragment StoreEntitySet="LessonPageMapping">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="LessonId" ColumnName="LessonId" />
           <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="LessonId" ColumnName="LessonId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pages">
       <EntityTypeMapping TypeName="AEPModel.Page">
         <MappingFragment StoreEntitySet="Page">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProseActivities">
       <EntityTypeMapping TypeName="AEPModel.ProseActivity">
         <MappingFragment StoreEntitySet="ProseActivity">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="AccentId" ColumnName="AccentId" />
-          <ScalarProperty Name="Question" ColumnName="Question" />
-          <ScalarProperty Name="Answer" ColumnName="Answer" />
-          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Datetime" ColumnName="Datetime" />
-          <ScalarProperty Name="Identity" ColumnName="Identity" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="AccentId" ColumnName="AccentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuestionSets">
+      <EntityTypeMapping TypeName="AEPModel.QuestionSet">
+        <MappingFragment StoreEntitySet="QuestionSet">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="QuestionId" ColumnName="QuestionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="AEPModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Vocabularies">
       <EntityTypeMapping TypeName="AEPModel.Vocabulary">
         <MappingFragment StoreEntitySet="Vocabulary">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
-          <ScalarProperty Name="Word" ColumnName="Word" />
           <ScalarProperty Name="Synonym" ColumnName="Synonym" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -4,13 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Tinytots.English.Business.Logics;
+using Tinytots.English.DTO.ViewModel;
 
 namespace Tinytots.English.Teacher.Controllers
 {
     public class AccountController : Controller
     {
-        [AllowAnonymous]
-        // GET: Account
+        UserBL _UserBL = null;
+        public AccountController()
+        {
+            _UserBL = new UserBL();
+        }
+        [AllowAnonymous]        
         public ActionResult Login()
         {
             return View();
@@ -18,15 +24,19 @@ namespace Tinytots.English.Teacher.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(FormCollection collection)
+        public ActionResult Login(LoginModel model)
         {
-            if (!string.IsNullOrEmpty(collection["Name"]))
+            if (ModelState.IsValid)
             {
-                FormsAuthentication.SetAuthCookie(collection["Name"].ToString(), false);
-                return RedirectToAction("Index", "Home");
+                var user = _UserBL.CheckUser(model);
+                if (user > 0)
+                {
+                    FormsAuthentication.SetAuthCookie(user.ToString(), false);
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", "Invalid username or password.");
             }
-            ModelState.AddModelError(string.Empty, "Name is required to login.");
-            return View(collection);
+            return View(model);
         }
 
         [AllowAnonymous]

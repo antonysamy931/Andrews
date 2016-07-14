@@ -51,7 +51,30 @@
     <Property Name="Answer" Type="nvarchar" MaxLength="300" />
     <Property Name="Result" Type="bit" />
     <Property Name="Datetime" Type="datetime" />
-    <Property Name="Identity" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuestionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="QuestionId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="300" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="300" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar" MaxLength="300" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="Vocabulary">
     <Key>
@@ -110,6 +133,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_QuestionSet_UserId">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="QuestionSet" Type="Self.QuestionSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuestionSet">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Vocabulary_Image">
     <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
     <End Role="Vocabulary" Type="Self.Vocabulary" Multiplicity="*" />
@@ -129,6 +164,8 @@
     <EntitySet Name="LessonPageMapping" EntityType="Self.LessonPageMapping" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ProseActivity" EntityType="Self.ProseActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuestionSet" EntityType="Self.QuestionSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vocabulary" EntityType="Self.Vocabulary" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Accent_Image" Association="Self.FK_Accent_Image">
       <End Role="Image" EntitySet="Image" />
@@ -145,6 +182,10 @@
     <AssociationSet Name="FK_ProseActivity_Accent" Association="Self.FK_ProseActivity_Accent">
       <End Role="Accent" EntitySet="Accent" />
       <End Role="ProseActivity" EntitySet="ProseActivity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuestionSet_UserId" Association="Self.FK_QuestionSet_UserId">
+      <End Role="User" EntitySet="User" />
+      <End Role="QuestionSet" EntitySet="QuestionSet" />
     </AssociationSet>
     <AssociationSet Name="FK_Vocabulary_Image" Association="Self.FK_Vocabulary_Image">
       <End Role="Image" EntitySet="Image" />

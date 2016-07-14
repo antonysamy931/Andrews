@@ -152,3 +152,53 @@ ALTER TABLE [dbo].[LessonPageMapping] WITH CHECK ADD CONSTRAINT
 [FK_LessonPageMapping_Page] FOREIGN KEY([PageId])
 REFERENCES [dbo].[Page] ([Id])
 GO
+
+-- Creating User table
+
+CREATE TABLE [dbo].[User](
+[Id] int IDENTITY(1,1) not null,
+[FirstName] nvarchar(300) null,
+[LastName] nvarchar(300) null,
+[UserName] nvarchar(300) not null,
+[Password] nvarchar(max) not null,
+[Address] nvarchar(max) null,
+[Email] nvarchar(300) null,
+[Phone] nvarchar(50) null,
+[IsActive] bit
+)
+
+GO
+
+-- Creating primary key for Image table
+ALTER TABLE [dbo].[User]
+ADD CONSTRAINT [PK_UserId]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating QuestionSet table
+
+CREATE TABLE [dbo].[QuestionSet] (
+[Id] int IDENTITY(1,1) not null,
+[QuestionId] nvarchar(max) not null,
+[UserId] int not null,
+[DateCreated] datetime
+)
+
+-- Creating primary key for the QuestionSet table
+
+ALTER TABLE [dbo].[QuestionSet]
+ADD CONSTRAINT [PK_QuestionSetId]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating foreign key for UserId
+
+ALTER TABLE [dbo].[QuestionSet] WITH CHECK ADD CONSTRAINT 
+[FK_QuestionSet_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+sp_RENAME '[ProseActivity].[Identity]' , 'UserId', 'COLUMN'
+
+ALTER TABLE dbo.ProseActivity
+   ALTER COLUMN UserId int not null

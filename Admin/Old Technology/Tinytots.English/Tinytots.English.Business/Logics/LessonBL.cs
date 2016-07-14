@@ -61,29 +61,31 @@ namespace Tinytots.English.Business.Logics
                 }).ToList();
             }
 
-            if (pageId != null)
+            if (lessonDTO.Pages != null && lessonDTO.Pages.Count > 0)
             {
-                lessonDTO.PageDTO = lessonDTO.Pages.Where(x => x.Id == pageId.Value).FirstOrDefault();
-                var index = lessonDTO.Pages.FindIndex(x => x.Id == pageId.Value);
-                if (index > 0)
+                if (pageId != null)
                 {
-                    var nextObj = lessonDTO.Pages.Skip(index + 1).FirstOrDefault();
+                    lessonDTO.PageDTO = lessonDTO.Pages.Where(x => x.Id == pageId.Value).FirstOrDefault();
+                    var index = lessonDTO.Pages.FindIndex(x => x.Id == pageId.Value);
+                    if (index > 0)
+                    {
+                        var nextObj = lessonDTO.Pages.Skip(index + 1).FirstOrDefault();
+                        if (nextObj != null)
+                            lessonDTO.Next = nextObj.Id;
+                        var preObj = lessonDTO.Pages.Skip(index - 1).FirstOrDefault();
+                        if (preObj != null)
+                            lessonDTO.Previous = preObj.Id;
+                    }
+                }
+                else
+                {
+                    lessonDTO.PageDTO = lessonDTO.Pages.FirstOrDefault();
+
+                    var nextObj = lessonDTO.Pages.Skip(1).FirstOrDefault();
                     if (nextObj != null)
                         lessonDTO.Next = nextObj.Id;
-                    var preObj = lessonDTO.Pages.Skip(index - 1).FirstOrDefault();
-                    if (preObj != null)
-                        lessonDTO.Previous = preObj.Id;
                 }
             }
-            else
-            {
-                lessonDTO.PageDTO = lessonDTO.Pages.FirstOrDefault();
-
-                var nextObj = lessonDTO.Pages.Skip(1).FirstOrDefault();
-                if (nextObj != null)
-                    lessonDTO.Next = nextObj.Id;
-            }
-
             return lessonDTO;
         }
 

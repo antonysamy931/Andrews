@@ -61,6 +61,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomDTO\AccentDTO.cs" />
     <Compile Include="CustomDTO\LessonDTO.cs" />
     <Compile Include="CustomDTO\VocabularyDTO.cs" />
     <Compile Include="Image.cs">
@@ -79,10 +80,18 @@
     <Compile Include="ProseActivity.cs">
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="QuestionSet.cs">
+      <DependentUpon>AEPEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>AEPEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\AccentModel.cs" />
     <Compile Include="ViewModel\LessonModel.cs" />
     <Compile Include="ViewModel\LoginModel.cs" />
     <Compile Include="ViewModel\PageModel.cs" />
+    <Compile Include="ViewModel\ProseActivityViewModel.cs" />
+    <Compile Include="ViewModel\UserModel.cs" />
     <Compile Include="ViewModel\VocabularyModel.cs" />
     <Compile Include="Vocabulary.cs">
       <DependentUpon>AEPEntity.tt</DependentUpon>

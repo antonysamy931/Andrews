@@ -83,12 +83,20 @@
     <Compile Include="Logics\LessonDL.cs" />
     <Compile Include="Logics\LessonPageMappingDL.cs" />
     <Compile Include="Logics\PageDL.cs" />
+    <Compile Include="Logics\ProseActivityDL.cs" />
+    <Compile Include="Logics\UserDL.cs" />
     <Compile Include="Logics\VocabularyDL.cs" />
     <Compile Include="Page.cs">
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProseActivity.cs">
+      <DependentUpon>AEPEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestionSet.cs">
+      <DependentUpon>AEPEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
       <DependentUpon>AEPEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="Vocabulary.cs">

@@ -39,7 +39,7 @@ namespace Tinytots.English.Master.Controllers
                     model.Description = image.Description;
                 }
             }
-            return View(model);            
+            return View(model);
         }
 
         // GET: Accent/Create
@@ -52,31 +52,25 @@ namespace Tinytots.English.Master.Controllers
         [HttpPost]
         public ActionResult Create(AccentModel model, HttpPostedFileBase image)
         {
-            try
+
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
+                if (image != null)
                 {
-                    if(image != null)
-                    {
-                        byte[] Image = ConvertStreamToByte(image.InputStream);
-                        model.Image = ConvertByteToString(Image);
-                    }                    
-                    var accentId = _AccentBL.Insert(model);
-                    return RedirectToAction("Index");
+                    byte[] Image = ConvertStreamToByte(image.InputStream);
+                    model.Image = ConvertByteToString(Image);
                 }
-                return View(model);
+                var accentId = _AccentBL.Insert(model);
+                return RedirectToAction("Index");
             }
-            catch (Exception ex)
-            {
-                return View(model);
-            }
+            return View(model);
         }
 
         // GET: Accent/Edit/5
         public ActionResult Edit(int id)
         {
             AccentModel model = _AccentBL.Get(id);
-            if(model.ImageId != null)
+            if (model.ImageId != null)
             {
                 var image = _ImageBL.Get(model.ImageId.Value);
                 if (image != null)
@@ -84,7 +78,7 @@ namespace Tinytots.English.Master.Controllers
                     model.Name = image.Title;
                     model.Description = image.Description;
                 }
-            }            
+            }
             return View(model);
         }
 
@@ -94,11 +88,11 @@ namespace Tinytots.English.Master.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(image != null)
+                if (image != null)
                 {
                     byte[] Image = ConvertStreamToByte(image.InputStream);
                     model.Image = ConvertByteToString(Image);
-                }                
+                }
                 _AccentBL.Update(model);
                 return RedirectToAction("Index");
             }

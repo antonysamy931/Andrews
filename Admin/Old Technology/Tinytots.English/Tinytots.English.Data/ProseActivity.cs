@@ -20,7 +20,7 @@ namespace Tinytots.English.Data
         public string Answer { get; set; }
         public Nullable<bool> Result { get; set; }
         public Nullable<System.DateTime> Datetime { get; set; }
-        public string Identity { get; set; }
+        public int UserId { get; set; }
     
         public virtual Accent Accent { get; set; }
     }

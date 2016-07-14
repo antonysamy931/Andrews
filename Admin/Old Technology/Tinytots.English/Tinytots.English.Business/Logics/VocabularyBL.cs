@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tinytots.English.Data.Logics;
+using Tinytots.English.DTO.CustomDTO;
 using Tinytots.English.DTO.ViewModel;
 
 namespace Tinytots.English.Business.Logics
@@ -36,10 +37,35 @@ namespace Tinytots.English.Business.Logics
             }
             return models;
         }
-        //public List<VocabularyModel> GetAll(int? id = null)
-        //{
 
-        //}
+        public VocabularyDTO GetAll(int? id = null)
+        {
+            VocabularyDTO model = new VocabularyDTO();
+            model.Vocabularies = GetAll();
+            if(id != null)
+            {
+                model.Default = model.Vocabularies.Where(x => x.Id == id.Value).FirstOrDefault();
+                var index = model.Vocabularies.FindIndex(x => x.Id == id.Value);
+                if(index > 0)
+                {
+                    var nextObj = model.Vocabularies.Skip(index + 1).FirstOrDefault();
+                    if (nextObj != null)
+                        model.Next = nextObj.Id.Value;
+                    var preObj = model.Vocabularies.Skip(index - 1).FirstOrDefault();
+                    if (preObj != null)
+                        model.Previous = preObj.Id.Value;
+                }
+            }
+            else
+            {
+                model.Default = model.Vocabularies.FirstOrDefault();
+                var nextObj = model.Vocabularies.Skip(1).FirstOrDefault();
+                if (nextObj != null)
+                    model.Next = nextObj.Id.Value;
+            }
+            return model;
+        }
+
         public VocabularyModel Get(int id)
         {
             VocabularyModel model = new VocabularyModel();

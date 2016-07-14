@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tinytots.English.Data.Logics;
+using Tinytots.English.DTO.CustomDTO;
 using Tinytots.English.DTO.ViewModel;
 
 namespace Tinytots.English.Business.Logics
@@ -31,11 +32,42 @@ namespace Tinytots.English.Business.Logics
                     model.American = accent.American;
                     model.British = accent.British;
                     model.Id = accent.Id;
+                    model.ImageId = accent.ImageId;
+                    model.Name = accent.Image.Title;
+                    model.Description = accent.Image.Description;
                     models.Add(model);
                 }
             }
             return models;
 
+        }
+
+        public AccentDTO GetAll(int? id = null)
+        {
+            AccentDTO model = new AccentDTO();
+            model.Accents = GetAll();
+            if (id != null)
+            {
+                model.Default = model.Accents.Where(x => x.Id == id.Value).FirstOrDefault();
+                var index = model.Accents.FindIndex(x => x.Id == id.Value);
+                if(index > 0)
+                {
+                    var nextObj = model.Accents.Skip(index + 1).FirstOrDefault();
+                    if (nextObj != null)
+                        model.Next = nextObj.Id.Value;
+                    var preObj = model.Accents.Skip(index - 1).FirstOrDefault();
+                    if (preObj != null)
+                        model.Previous = preObj.Id.Value;
+                }
+            }
+            else
+            {
+                model.Default = model.Accents.FirstOrDefault();
+                var nextObj = model.Accents.Skip(1).FirstOrDefault();
+                if (nextObj != null)
+                    model.Next = nextObj.Id.Value;
+            }
+            return model;
         }
         public AccentModel Get(int id)
         {
