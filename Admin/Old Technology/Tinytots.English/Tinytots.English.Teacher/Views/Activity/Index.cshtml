@@ -1,0 +1,73 @@
+﻿@model Tinytots.English.DTO.ViewModel.ProseActivityModel
+
+@{
+    ViewBag.Title = "Activity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string american = string.Empty;
+    string british = string.Empty;
+    if(Model.Result != null)
+    {
+        if (Model.Question.ToLower().Contains("american"))
+        {
+            if (Model.Result.Value)
+            {
+                american = "btn-success";
+            }
+            else
+            {
+                american = "btn-warning";
+            }
+        }
+        else
+        {
+            if (Model.Result.Value)
+            {
+                british = "btn-success";
+            }
+            else
+            {
+                british = "btn-warning";
+            }
+        }
+    }
+}
+<div class="row">
+    <div class="col-sm-6">
+        <img src="@Url.Action("ViewImage","Image",new { id = Model.ImageId })" width="100" height="100" />
+    </div>
+    <div class="col-sm-6">
+        <div class="col-sm-12">
+            <p>@Model.Question</p>
+        </div>
+        <div class="col-sm-12">
+            <input class="btn btn-default @american" @Html.Raw(Model.Result != null ? "disabled=disabled" : "") type="button" id="American" value="@Model.American" />
+            <input class="btn btn-default @british" @Html.Raw(Model.Result != null ? "disabled=disabled" : "") type="button" id="British" value="@Model.British" />
+            <p>@Html.Raw(Model.Result != null ? Model.Result.Value.ToString() : "")</p>
+        </div>
+        <div class="col-sm-12">
+            <a href="@Html.Raw(Model.Prv != 0 ? Url.Action("Index", new { id = Model.Prv }) : "#")">Pre</a>
+            <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Index", new { id = Model.Next }) : Url.Action("Report"))">Next</a>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="activityId" value="@Model.Id" />
+<input type="hidden" id="nextId" value="@Model.Next" />
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('input[type=button]').click(function () {
+            var answer = $(this).val();
+            var id = $('#activityId').val();
+            var nextId = $('#nextId').val();
+            $.ajax({
+                url: "/Activity/Update?id=" + id + "&answer=" + answer,
+                type: "post",
+                datatype: "json",
+                success: function () {
+                    window.location.replace("/Activity/Index?id=" + nextId);
+                }
+            })
+        });
+    });
+</script>

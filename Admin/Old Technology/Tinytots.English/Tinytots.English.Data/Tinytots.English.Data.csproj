@@ -84,6 +84,7 @@
     <Compile Include="Logics\LessonPageMappingDL.cs" />
     <Compile Include="Logics\PageDL.cs" />
     <Compile Include="Logics\ProseActivityDL.cs" />
+    <Compile Include="Logics\QuestionSetDL.cs" />
     <Compile Include="Logics\UserDL.cs" />
     <Compile Include="Logics\VocabularyDL.cs" />
     <Compile Include="Page.cs">
