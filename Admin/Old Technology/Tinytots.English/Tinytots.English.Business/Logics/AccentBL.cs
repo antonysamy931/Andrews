@@ -103,6 +103,7 @@ namespace Tinytots.English.Business.Logics
                 var imageId = _imageDL.Insert(ImageMapping(model));
                 accent.ImageId = imageId;
             }
+            _imageDL.Update(ImageMapping(model));
             _accentDL.Update(accent);
         }
 
@@ -126,12 +127,17 @@ namespace Tinytots.English.Business.Logics
 
         private Data.Image ImageMapping(AccentModel model)
         {
-            return new Data.Image()
+            var image = new Data.Image()
             {
                 Content = model.Image,
                 Title = model.Name,
                 Description = model.Description
             };
+
+            if (model.ImageId != null && model.ImageId.Value > 0)
+                image.Id = model.ImageId.Value;
+
+            return image;
         }
     }
 }

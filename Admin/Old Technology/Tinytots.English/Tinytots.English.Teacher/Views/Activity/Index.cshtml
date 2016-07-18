@@ -65,7 +65,11 @@
                 type: "post",
                 datatype: "json",
                 success: function () {
-                    window.location.replace("/Activity/Index?id=" + nextId);
+                    if (nextId == '0') {
+                        window.location.replace("/Activity/Report");
+                    } else {
+                        window.location.replace("/Activity/Index?id=" + nextId);
+                    }                    
                 }
             })
         });

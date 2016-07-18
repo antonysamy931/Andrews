@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    /*background: url("Images/backgrnd.jpg") repeat;*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,187 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.login-center {
+    border: 1px dotted #ccc;
+    border-radius: 10px;
+    margin: 5% auto 0;
+    max-height: 350px;
+    max-width: 50%;
+    -webkit-box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+    -moz-box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+    box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+}
+
+    .login-center .h2 {
+        background: #2E7996 none repeat scroll 0 0;
+        border-radius: 10px 10px 0 0;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .login-center label {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    .login-center input[type="submit"] {
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 40%;
+        background-color: #2E7996;
+        border: none;
+    }
+
+    .login-center .form-horizontal {
+        margin-top: 5%;
+    }
+
+body .navbar-inverse {
+    background-color: #2E7996;
+}
+
+    body .navbar-inverse .navbar-brand {
+        color: #FFFFFF;
+        text-transform: uppercase;
+    }
+
+    body .navbar-inverse .navbar-nav > li > a {
+        color: #FFFFFF;
+    }
+
+.login-center .error-form {
+    background-color: #da6b6b;
+    font-weight: bold;
+    padding-left: 10px;
+    width: 75.5%;
+}
+
+    .login-center .error-form .text-danger {
+        color: #FFFFFF;
+        font-size: 11px;
+        text-transform: uppercase;
+    }
+
+table thead {
+    background: #2E7996 none repeat scroll 0 0;
+    height: 50px;
+}
+
+    table thead tr th {
+        color: #FFFFFF;
+        text-align: center;
+        text-transform: uppercase;
+        vertical-align: middle !important;
+    }
+
+.create {
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+    .create a, .back-to-list {
+        background-color: #2E7996;
+    }
+
+.header {
+    color: #2E7996;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+table tbody tr td:nth-child(1),
+table tbody tr td:nth-child(4) {
+    text-align: center;
+}
+
+table tbody tr td:nth-child(2),
+table tbody tr td:nth-child(3) {
+    padding-left: 2%;
+}
+
+table tbody tr td:nth-child(4) a {
+    margin: 10px;
+    text-decoration: none;
+}
+
+.page-center {
+    border: 1px dotted #ccc;
+    border-radius: 10px;
+    margin: 3% auto 0;
+    min-height: 350px;
+    max-width: 70%;
+    -webkit-box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+    -moz-box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+    box-shadow: -9px 15px 23px 6px rgba(162,139,147,1);
+}
+
+    .page-center .h2 {
+        background: #2E7996 none repeat scroll 0 0;
+        border-radius: 10px 10px 0 0;
+        color: #ffffff;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 20px;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .page-center label {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+        color: #000000;
+    }
+
+    .page-center input[type="submit"] {
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 40%;
+        background-color: #2E7996;
+        border: none;
+    }
+
+    .page-center .form-horizontal {
+        margin-top: 5%;
+    }
+
+    .page-center .error-form {
+        background-color: #da6b6b;
+        font-weight: bold;
+        padding-left: 10px;
+        width: 53.5%;
+    }
+
+        .page-center .error-form .text-danger {
+            color: #FFFFFF;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+    .page-center .h4 {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+    }
+.page-center .custom-image
+{
+    width:55%;
+}
+
+.page-center .right{
+    text-align:right;
 }

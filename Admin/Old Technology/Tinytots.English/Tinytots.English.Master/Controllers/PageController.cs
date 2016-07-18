@@ -44,6 +44,7 @@ namespace Tinytots.English.Master.Controllers
                 DTO.Lesson ls = new DTO.Lesson();
                 ls.Description = lesson.Description;
                 ls.Name = lesson.Name;
+                ls.Id = lesson.Id.Value;
                 model.Lesson = ls;
             }
             return View(model);
