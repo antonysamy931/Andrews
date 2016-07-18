@@ -5,37 +5,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<div class="header">Vocabulary</div>
+<div class="page-center">
+    <div class="h2">Details</div>
 
-<div>
-    <h4>Vocabulary</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Word)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Word)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Synonym)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Synonym)
-        </dd>
-        <dt>
-            @Html.Display("Image")
-        </dt>
-        <dd>
-            <img src="@Url.Action("ViewImage","Image",new { id = Model.ImageId })" />
-        </dd>
-
-    </dl>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-md-4 right">
+                @Html.LabelFor(model => model.Word)
+            </div>
+            <div class="col-md-8">
+                @Html.DisplayFor(model => model.Word)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 right">
+                @Html.LabelFor(model => model.Synonym)
+            </div>
+            <div class="col-md-8">
+                @Html.DisplayFor(model => model.Synonym)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 right">
+                <label>Image</label>
+            </div>
+            <div class="col-md-8">
+                <img class="img-responsive img-thumbnail custom-image" src="@Url.Action("ViewImage","Image",new { id = Model.ImageId })" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <a href="@Url.Action("Edit",new { id = Model.Id })" class="btn btn-primary back-to-list">Edit</a> <a href="@Url.Action("Index")" class="btn btn-primary back-to-list">Back to List</a>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
