@@ -5,44 +5,68 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div>
-    <h4>Lesson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+<div class="container">
+    <div class="col-sm-4">
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">
+                Lesson Detail
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-5 text-center">
+                        <label class="control-label">Name </label>
+                    </div>
+                    <div class="col-sm-1">:</div>
+                    <div class="col-sm-5">
+                       @Model.Name
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5 text-center">
+                        <label class="control-label">Description </label>
+                    </div>
+                    <div class="col-sm-1">:</div>
+                    <div class="col-sm-5">
+                       @Model.Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       <div class="col-sm-8">
+           <div class="panel panel-info">
+               <div class="panel-heading">
+                   Page Content
+               </div>
+               <div class="panel-body">
+                   <div class="row">
+                       <div class="col-sm-12">
+                           @if (Model.PageDTO != null)
+                           {
+                               <div id="PageContent"></div>
+                           }
+                       </div>
+                   </div>
+               </div>
+               <div class="panel-footer text-center">
+                   <a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Previous }) : "#")">
+                       <span class="glyphicon glyphicon-step-backward"></span>
+                   </a>
+                   <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Next }) : "#")">
+                       <span class="glyphicon glyphicon-step-forward"></span>
+                   </a>
+                   @Html.ActionLink("Back to Lessons", "Index")
+               </div>
+           </div>
+       </div>
+    </div>    
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-    </dl>
-</div>
-
-@if (Model.PageDTO != null)
-{
-    <div id="PageContent">
-
-    </div>
-    <a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Previous }) : "#")">Pre</a>
-    <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Details",new { id = Model.Id, page = Model.Next }) : "#")">Next</a>
-}
-
-<p>
-    @Html.ActionLink("Back to List", "Index")
-</p>
-<script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#PageContent').html('@Html.Raw(Model.PageDTO != null ? Model.PageDTO.Content : "" )');
-    });
-</script>
+    <p>
+        
+    </p>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#PageContent').html('@Html.Raw(Model.PageDTO != null ? Model.PageDTO.Content : "" )');
+        });
+    </script>

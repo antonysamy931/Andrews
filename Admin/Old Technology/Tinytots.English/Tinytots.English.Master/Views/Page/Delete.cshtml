@@ -4,53 +4,57 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="header">Page</div>
+<div class="page-center">
+    <div class="h2">Are you sure you want to delete this page?</div>
 
-<div>
-    <h4>Lesson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Lesson.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lesson.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lesson.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lesson.Description)
-        </dd>
-
-    </dl>
-</div>
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this page?</h3>
-<div>    
-    <h4>Page</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.LessonId)
-        @Html.HiddenFor(model => model.Id)
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to Lesson", "Details", "Lesson", new { id = Model.LessonId.Value })
+    <div class="form-horizontal">
+        <div class="header-lesson">
+            Lesson Detail
         </div>
-    }
+        <hr />
+        <div class="form-group">
+            <div class="col-md-4 right">
+                @Html.LabelFor(model => model.Lesson.Name)
+            </div>
+            <div class="col-md-8">
+                @Html.DisplayFor(model => model.Lesson.Name)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4 right">
+                @Html.LabelFor(model => model.Lesson.Description)
+            </div>
+            <div class="col-md-8">
+                @Html.DisplayFor(model => model.Lesson.Description)
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-2 right">
+                <label class="control-label">Content</label>
+            </div>
+            <div class="col-md-10">
+                <div id="Content"></div>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.LessonId)
+            @Html.HiddenFor(model => model.Id)
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" value="Delete" class="btn btn-primary" /> <a href="@Url.Action("Details", "Lesson", new { id = Model.LessonId.Value })" class="btn btn-primary back-to-list">Back to Lesson</a> <a href="@Url.Action("Index", "Lesson")" class="btn btn-primary back-to-list">Back to Lessons</a>
+                </div>
+            </div>            
+        }
+
+        
+    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Content').html('@Html.Raw(Model.Content)');
+    });
+</script>

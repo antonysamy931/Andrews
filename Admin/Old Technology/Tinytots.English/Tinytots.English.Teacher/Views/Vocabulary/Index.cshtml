@@ -7,36 +7,74 @@
     var Text = VocabularyTemplate.Replace("{word}", Model.Default.Word).Replace("{synonym}", Model.Default.Synonym);
 }
 
-<h2>Vocabulary</h2>
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12 col-md-3">
-            <p>Vocabulary List</p>
-            <ul class="nav navbar">
-                @foreach (var item in Model.Vocabularies)
-                {
-                    if (item.Id == Model.Default.Id)
-                    {
-                        <li><a href="#" class="active">@item.Word</a></li>
-                    }
-                    else
-                    {
-                        <li><a href="@Url.Action("Index", new { page = item.Id })">@item.Word</a></li>
-                    }
-                }
-            </ul>
-        </div>
-        <div class="col-sm-12 col-md-9">
+    <div class="panel">
+        <div class="panel-body">
             <div class="row">
-                <label> Word @Model.Default.Word : @Model.Default.Synonym </label>
-                <audio controls id="MyAudio">
-                    <source src="@Url.Action("Speak","Speech",new { text = Text })" type="audio/mp3" />
-                    <p>Your browser does not support HTML 5 audio element</p>
-                </audio>
-                <img src="@Url.Action("ViewImage","Image",new { id = Model.Default.ImageId })" />
-                <a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Index", new { page = Model.Previous }) : "#")">Pre</a>
-                <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Index", new { page = Model.Next }) : "#")">Next</a>
+                <div class="col-sm-4">
+                    <div class="table table-bordered menu-scroll">
+                        <ul class="nav nav-pills nav-stacked menustyle">
+                            @foreach (var item in Model.Vocabularies)
+                            {
+                                if (item.Id == Model.Default.Id)
+                                {
+                                    <li class="active"><a href="#">@item.Word.ToUpper()</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Index", new { page = item.Id })">@item.Word.ToUpper()</a></li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="panel panel-info">
+                        <div class="panel-heading text-center">
+                            <label> Word @Model.Default.Word.ToUpper() : @Model.Default.Synonym.ToUpper() </label>
+                            <audio controls id="MyAudio" style="display:none;">
+                                <source src="@Url.Action("Speak","Speech",new { text = Text })" type="audio/mp3" />
+                                <p>Your browser does not support HTML 5 audio element</p>
+                            </audio>
+                            <a class="glyphicon glyphicon-play" href="#" id="play" onclick="play()"></a>
+                            <a class="glyphicon glyphicon-pause" href="#" id="stop" onclick="play()"></a>
+                        </div>
+                        <div class="panel-body">
+                            <img src="@Url.Action("ViewImage","Image",new { id = Model.Default.ImageId })" class="img-responsive" />
+                            <p style="padding:10px 0;">
+                                @Model.Default.Description
+                            </p>
+                        </div>
+                        <div class="panel-footer text-center">
+                            <a href="@Html.Raw(Model.Previous != 0 ? Url.Action("Index", new { page = Model.Previous }) : "#")">
+                                <span class="glyphicon glyphicon-step-backward"></span>
+                            </a>
+                            <a href="@Html.Raw(Model.Next != 0 ? Url.Action("Index", new { page = Model.Next }) : "#")">
+                                <span class="glyphicon glyphicon-step-forward"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var audioElement = document.getElementById('MyAudio');
+        $('#stop').hide();
+
+        $('#play').click(function () {
+            $('#play').hide();
+            $('#stop').show();
+            audioElement.play();
+        });
+
+        $('#stop').click(function () {
+            $('#play').show();
+            $('#stop').hide();
+            audioElement.pause();
+        });
+    });
+</script>

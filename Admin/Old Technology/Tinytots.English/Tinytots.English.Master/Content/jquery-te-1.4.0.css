@@ -9,12 +9,15 @@
 
 /* editor's general field */
 .jqte {
-	margin:30px 0;
+	/*margin:30px 0;*/
 	border:#000 1px solid;
 	border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;
 	box-shadow:0 0 3px #999; -webkit-box-shadow:0 0 3px #999; -moz-box-shadow:0 0 3px #999;
 	overflow:hidden;
 	transition:box-shadow 0.4s, border 0.4s; -webkit-transition:-webkit-box-shadow 0.4s, border 0.4s; -moz-transition:-moz-box-shadow 0.4s, border 0.4s; -o-transition:-o-box-shadow 0.4s, border 0.4s;
+    height: 250px !important;
+    margin: 0 !important;
+    width: 98% !important;
 }
 .jqte * {
 	color:#333;

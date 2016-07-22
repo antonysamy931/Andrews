@@ -4,59 +4,55 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="header">Page</div>
 
-<div>
-    <h4>Lesson</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Lesson.Name)
-        </dt>
+<div class="page-center">
+    <div class="h2">Create</div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-        <dd>
-            @Html.DisplayFor(model => model.Lesson.Name)
-        </dd>
+        <div class="form-horizontal">            
+            @Html.HiddenFor(model => model.LessonId)
+            <div class="header-lesson">
+                Lesson Detail
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="col-md-4 right">
+                    @Html.LabelFor(model => model.Lesson.Name)
+                </div>
+                <div class="col-md-8">
+                    @Html.DisplayFor(model => model.Lesson.Name)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-4 right">
+                    @Html.LabelFor(model => model.Lesson.Description)
+                </div>
+                <div class="col-md-8">
+                    @Html.DisplayFor(model => model.Lesson.Description)
+                </div>
+            </div>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea name="Content" class="form-control editor"></textarea>
+                    <div class="error-form">
+                        @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Lesson.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lesson.Description)
-        </dd>
-
-    </dl>
-</div>
-
-<h2>Create New Page</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Page</h4>
-        @Html.HiddenFor(model => model.LessonId)
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <textarea name="Content" class="form-control editor"></textarea>                
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <input type="submit" value="Create" class="btn btn-primary" /> <a href="@Url.Action("Details", "Lesson", new { id = Model.LessonId.Value })" class="btn btn-primary back-to-list">Back to Lesson</a>
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-<div>
-    @Html.ActionLink("Back to Lesson", "Details", "Lesson", new { id = Model.LessonId.Value }, null)
+    }
 </div>
 
 @section Scripts {
@@ -67,6 +63,6 @@
 <script type="text/javascript" src="~/Scripts/jquery-te-1.4.0.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.editor').jqte();        
+        $('.editor').jqte();
     });
 </script>
